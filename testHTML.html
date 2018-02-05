@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Technical Test</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+</head>
+<body>
+<div class="tableResult">
+   <table id= "result" border="1">
+    <thead>
+        <th>Phone Number</th>
+        <th>Sevice Charge</th>
+    </thead>
+    <tbody>
+    </tbody>
+   </table>
+</div>
+</body>
+<script type="text/javascript">
+     $.getJSON("result.json", function(json) {
+        //console.log(json); 
+        var mobile = json.MobileNo;
+        var servCharge = json.SeviceCharge;
+        console.log(servCharge);
+        for(i = 0;i<mobile.length;i++ ){
+            var tableResult = "<tr>" + "<td>" + mobile[i] + "</td>" + "<td>" + servCharge[i] + "</td>" + "</tr>"
+           $(tableResult).appendTo("#result tbody");
+        }
+         
+    });
+</script>
+</html>
